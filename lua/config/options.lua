@@ -12,3 +12,9 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.autoindent = true
 vim.opt.smartindent = false
+
+-- Work around nvim-treesitter vim-query mismatch in some packaged Neovim builds.
+-- Override the vim highlights query with a minimal safe query.
+pcall(function()
+  vim.treesitter.query.set("vim", "highlights", "(comment) @comment")
+end)
