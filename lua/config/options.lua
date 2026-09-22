@@ -18,3 +18,6 @@ vim.opt.smartindent = false
 pcall(function()
   vim.treesitter.query.set("vim", "highlights", "(comment) @comment")
 end)
+
+-- Follow the global light/dark state written by the `theme` command.
+vim.o.background = require("config.theme").mode()
