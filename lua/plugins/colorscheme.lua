@@ -4,22 +4,29 @@ local mode = require("config.theme").mode()
 
 return {
   {
-    "folke/tokyonight.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = false,
     priority = 1000,
     opts = {
-      style = "night", -- dark variant; "day" is selected by name below
-      light_style = "day",
-      styles = {
-        comments = { italic = true },
-        keywords = { italic = true },
+      background = { light = "latte", dark = "mocha" },
+      integrations = {
+        blink_cmp = true,
+        gitsigns = true,
+        lsp_trouble = true,
+        mason = true,
+        noice = true,
+        notify = true,
+        telescope = true,
+        treesitter = true,
+        which_key = true,
       },
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = mode == "light" and "tokyonight-day" or "tokyonight-night",
+      colorscheme = mode == "light" and "catppuccin-latte" or "catppuccin-mocha",
     },
   },
 }
